@@ -77,15 +77,20 @@ import "../../public/mutheme/yellowTheme.css";
 			font-size: 112px;
 			font-weight: 400;
 			line-height: 95px;
+			@media screen and (max-width: 800px) {
+				font-size: 64px;
+				line-height: 56px;
+			}
 		}
 	}
 	main {
 		color: var(--md-sys-color-on-surface);
 		display: block;
-		width: 100%;
 		max-width: 1280px;
 		margin-left: auto;
 		margin-right: auto;
+		padding-left: 15px;
+		padding-right: 15px;
 	}
 	.thankyoucards {
 		display: flex;
@@ -94,6 +99,14 @@ import "../../public/mutheme/yellowTheme.css";
 		align-content: center;
 		justify-content: left;
 		align-items: center;
+		@media screen and (max-width: 800px) {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			align-content: flex-start;
+			align-items: flex-start;
+			justify-content: center;
+		}
 	}
 	.thankyoucard {
 		border-radius: 12px;
