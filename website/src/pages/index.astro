@@ -1,0 +1,103 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import "../layouts/mutheme/yellowtheme.css";
+---
+
+<Layout title="Meterial You - Material You for Rainmeter">
+	<div class="herocard">
+		<h1><strong>Meter</strong>ial You</h1>
+		<p class="title-large">
+			An easy to use, customizable, and open source rainmeter plugin for
+			applying Material You colors to widgets.
+		</p>
+		<a href="/usage"><Button>Get started</Button></a>
+	</div>
+	<main>
+		<h1 class="display-large">Thank you!</h1>
+		<div class="thankyoucards">
+			<a
+				style="text-decoration: none;"
+				href="https://discord.com/users/187245461554462721/"
+			>
+				<div class="thankyoucard">
+					<h2>roxy#6969</h2>
+					<p>For providing help on Discord</p>
+				</div>
+			</a>
+			<div class="thankyoucard">
+				<h2>You!</h2>
+				<p>For supporting this project</p>
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style lang="scss">
+	.herocard {
+		height: 544px;
+		margin: 8px;
+		border-radius: 24px;
+		width: calc(100% - 16px);
+		max-width: 1760px;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		align-content: center;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+		&::after {
+			background-image: url("/lemongrass.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+			content: " ";
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			position: absolute;
+			z-index: 0;
+			border-radius: 24px;
+			filter: brightness(0.7);
+		}
+		& > * {
+			text-align: center;
+			color: var(--md-ref-palette-neutral-variant90);
+			z-index: 1;
+		}
+		& h1 {
+			margin: 0 0 8px;
+			font-size: 112px;
+			font-weight: 400;
+			line-height: 95px;
+		}
+	}
+	main {
+		color: var(--md-sys-color-on-surface);
+		display: block;
+		width: 100%;
+		max-width: 1280px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.thankyoucards {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-content: center;
+		justify-content: left;
+		align-items: center;
+	}
+	.thankyoucard {
+		border-radius: 12px;
+		padding: 8px 32px;
+		margin: 8px;
+		background: var(--md-sys-color-surface-variant);
+		width: fit-content;
+		color: var(--md-sys-color-on-surface);
+		text-decoration: none;
+	}
+</style>

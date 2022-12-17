@@ -1,0 +1,35 @@
+<button class="button">
+	<slot />
+</button>
+<style lang="scss">
+	.button {
+		z-index: 1;
+		height: 80px;
+		border-radius: 40px;
+		padding-left: 48px;
+		padding-right: 48px;
+		background: var(--md-sys-color-primary);
+		color: var(--md-sys-color-on-primary);
+		border: none;
+		cursor: pointer;
+		font-family: var(--md-sys-typescale-label-large-font-family-name);
+		font-style: var(--md-sys-typescale-label-large-font-family-style);
+		font-weight: var(--md-sys-typescale-label-large-font-weight);
+		font-size: calc(var(--md-sys-typescale-label-large-font-size) * 2);
+		letter-spacing: var(--md-sys-typescale-label-large-tracking);
+		line-height: var(--md-sys-typescale-label-large-height);
+		text-transform: var(--md-sys-typescale-label-large-text-transform);
+		text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+		transition: background, border-radius 200ms cubic-bezier(0.2, 0, 0, 1);
+		&:hover {
+			background: var(--md-sys-color-on-primary-container);
+		}
+		&:focus {
+			background: var(--md-sys-color-on-primary-container);
+		}
+		&:active {
+			background: var(--md-sys-color-primary);
+			border-radius: 16px;
+		}
+	}
+</style>

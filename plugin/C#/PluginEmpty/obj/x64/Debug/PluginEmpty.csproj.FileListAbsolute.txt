@@ -1,0 +1,12 @@
+C:\Users\lukei\OneDrive\Desktop\Programming\rainmeter plugin\rainmeter-plugin-sdk-master\C#\PluginEmpty\x64\Debug\Empty.dll
+C:\Users\lukei\OneDrive\Desktop\Programming\rainmeter plugin\rainmeter-plugin-sdk-master\C#\PluginEmpty\x64\Debug\Empty.pdb
+C:\Users\lukei\OneDrive\Desktop\Programming\rainmeter plugin\rainmeter-plugin-sdk-master\C#\PluginEmpty\obj\x64\Debug\PluginEmpty.csproj.AssemblyReference.cache
+C:\Users\lukei\OneDrive\Desktop\Programming\rainmeter plugin\rainmeter-plugin-sdk-master\C#\PluginEmpty\obj\x64\Debug\PluginEmpty.csproj.CoreCompileInputs.cache
+C:\Users\lukei\OneDrive\Desktop\Programming\rainmeter plugin\rainmeter-plugin-sdk-master\C#\PluginEmpty\obj\x64\Debug\Empty.dll
+C:\Users\lukei\OneDrive\Desktop\Programming\rainmeter plugin\rainmeter-plugin-sdk-master\C#\PluginEmpty\obj\x64\Debug\Empty.pdb
+C:\Users\lukei\OneDrive\Desktop\Programming\MeterialYou\plugin\C#\PluginEmpty\obj\x64\Debug\PluginEmpty.csproj.AssemblyReference.cache
+C:\Users\lukei\OneDrive\Desktop\Programming\MeterialYou\plugin\C#\PluginEmpty\obj\x64\Debug\PluginEmpty.csproj.CoreCompileInputs.cache
+C:\Users\lukei\OneDrive\Desktop\Programming\MeterialYou\plugin\C#\PluginEmpty\x64\Debug\MeterialYou.dll
+C:\Users\lukei\OneDrive\Desktop\Programming\MeterialYou\plugin\C#\PluginEmpty\x64\Debug\MeterialYou.pdb
+C:\Users\lukei\OneDrive\Desktop\Programming\MeterialYou\plugin\C#\PluginEmpty\obj\x64\Debug\MeterialYou.dll
+C:\Users\lukei\OneDrive\Desktop\Programming\MeterialYou\plugin\C#\PluginEmpty\obj\x64\Debug\MeterialYou.pdb

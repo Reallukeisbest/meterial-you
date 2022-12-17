@@ -1,0 +1,6 @@
+C:\Users\lukei\OneDrive\Desktop\Programming\MeterialYou\plugin\C#\PluginEmpty\x64\Debug\MeterialYou.dll
+C:\Users\lukei\OneDrive\Desktop\Programming\MeterialYou\plugin\C#\PluginEmpty\x64\Debug\MeterialYou.pdb
+C:\Users\lukei\OneDrive\Desktop\Programming\MeterialYou\plugin\C#\PluginEmpty\obj\x64\Debug\MeterialYouPlugin.csproj.AssemblyReference.cache
+C:\Users\lukei\OneDrive\Desktop\Programming\MeterialYou\plugin\C#\PluginEmpty\obj\x64\Debug\MeterialYouPlugin.csproj.CoreCompileInputs.cache
+C:\Users\lukei\OneDrive\Desktop\Programming\MeterialYou\plugin\C#\PluginEmpty\obj\x64\Debug\MeterialYou.dll
+C:\Users\lukei\OneDrive\Desktop\Programming\MeterialYou\plugin\C#\PluginEmpty\obj\x64\Debug\MeterialYou.pdb
