@@ -8,10 +8,9 @@ An easy to use, customizable, and open source rainmeter plugin for applying Mate
 </div>
 
 ## Useful links
-- [To download, click here](https://google.com/)
-- [To view documentation, click here](https://google.com/)
-- [To view the plugin's source, click here](https://google.com/)
-- [To view the website's source, click here](https://google.com/)
+- [To download, click here](https://meterialyou.vercel.app/)
+- [To view the website, click here](https://meterialyou.vercel.app/)
+- [To view documentation, click here](https://meterialyou.vercel.app/usage)
 - [To support me, click here](https://www.buymeacoffee.com/realluke/)
 
 ## Thank you!
