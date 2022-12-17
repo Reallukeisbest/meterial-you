@@ -56,4 +56,5 @@ FontSize=50
 Text=This is your secondary color: [Secondary]
 DynamicVariables=1
 ```
+When the accent color changes, the skin will have to be reloaded.
 Its as easy as that!
