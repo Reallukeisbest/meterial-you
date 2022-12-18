@@ -71,9 +71,7 @@ namespace MeterialYouPlugin
 
         IDictionary<string, string> scheme;
 
-        String token = "Primary";
-
-        internal string GetString()
+        internal string GetString(string token)
         {
             if (!scheme.ContainsKey(token))
             {
@@ -93,7 +91,6 @@ namespace MeterialYouPlugin
                     rainmeterFileSettingsLocation = API.GetSettingsFile();
                 }
 
-                token = api.ReadString("Token", "Primary");
                 scheme = generateScheme(GetAccentColor(), getLightMode());
             }
             catch (Exception e)
@@ -107,7 +104,6 @@ namespace MeterialYouPlugin
         {
             try
             {
-                token = api.ReadString("Token", "Primary");
                 scheme = generateScheme(GetAccentColor(), getLightMode());
             }
             catch (Exception e)
@@ -131,6 +127,31 @@ namespace MeterialYouPlugin
     public class Plugin
     {
         static IntPtr StringBuffer = IntPtr.Zero;
+
+        private static string TrimQuotes(string rawString)
+        {
+            string outString = rawString;
+            if ((rawString.StartsWith("\"") && rawString.EndsWith("\"")) || (rawString.StartsWith("'") && rawString.EndsWith("'")))
+            {
+                outString = outString.Remove(0, 1);
+                outString = outString.Remove(outString.Length - 1, 1);
+                return outString;
+            }
+            return rawString;
+        }
+
+        [DllExport]
+        public static IntPtr GetToken(IntPtr data, int argc, [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPWStr, SizeParamIndex = 1)] string[] argv)
+        {
+            Measure measure = (Measure)GCHandle.FromIntPtr(data).Target;
+
+            if (argc <= 0)
+            {
+                return Marshal.StringToHGlobalUni(measure.GetString("Primary"));
+            }
+
+            return Marshal.StringToHGlobalUni(measure.GetString(TrimQuotes(argv[0])));
+        }
 
         [DllExport]
         public static void Initialize(ref IntPtr data, IntPtr rm)
@@ -168,25 +189,6 @@ namespace MeterialYouPlugin
         {
             Measure measure = (Measure)GCHandle.FromIntPtr(data).Target;
             return measure.Update();
-        }
-
-        [DllExport]
-        public static IntPtr GetString(IntPtr data)
-        {
-            Measure measure = (Measure)GCHandle.FromIntPtr(data).Target;
-            if (StringBuffer != IntPtr.Zero)
-            {
-                Marshal.FreeHGlobal(StringBuffer);
-                StringBuffer = IntPtr.Zero;
-            }
-
-            string stringValue = measure.GetString();
-            if (stringValue != null)
-            {
-                StringBuffer = Marshal.StringToHGlobalUni(stringValue);
-            }
-
-            return StringBuffer;
         }
     }
 }
