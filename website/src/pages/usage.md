@@ -37,5 +37,11 @@ FontSize=50
 Text=This is an example of a primary color with opacity
 DynamicVariables=1
 ```
-
+To generate a scheme based on your wallpaper, just add `ColorSource=Wallpaper` to the `[MeterialYou]` section *(this is not recommended, as it takes longer to generate a scheme)*.
+```ini
+[MeterialYou]
+Measure=Plugin
+Plugin=MeterialYou
+ColorSource=Wallpaper
+```
 Its as easy as that!

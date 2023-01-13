@@ -5,6 +5,10 @@ using Microsoft.Win32;
 using MaterialColorUtilities.Schemes;
 using MaterialColorUtilities.Palettes;
 using System.Collections.Generic;
+using MaterialColorUtilities.Utils;
+using System.Drawing;
+using System.IO;
+using System.Diagnostics;
 
 namespace MeterialYouPlugin
 {
@@ -72,12 +76,87 @@ namespace MeterialYouPlugin
         IDictionary<string, string> scheme;
 
         internal string GetString(string token)
-        {
+        {   
             if (!scheme.ContainsKey(token))
             {
                 return "0, 0, 0";
             }
             return scheme[token];
+        }
+
+        uint ToUint(Color c)
+        {
+            return (uint)(((c.A << 24) | (c.R << 16) | (c.G << 8) | c.B) & 0xffffffffL);
+        }
+
+        uint getColorFromImage(string path, Rainmeter.API api)
+        {
+            try
+            {
+                Bitmap img = new(path);
+
+                api.Log(API.LogType.Notice, "1");
+
+                List<uint> pixels = new();
+
+                api.Log(API.LogType.Notice, "2");
+
+                for (int i = 0; i < Math.Floor((double)img.Width / 11); i++) //We do not need all of the pixels
+                {
+                    for (int j = 0; j < Math.Floor((double)img.Height / 11); j++) //We only grab a few (for performance)
+                    {
+                        Color pixel = img.GetPixel(i * 10, j * 10);
+                        pixels.Add(ToUint(pixel));
+                    }
+                }
+
+                api.Log(API.LogType.Notice, "3");
+
+                List<uint> bestColors = ImageUtils.ColorsFromImage(pixels.ToArray());
+
+                api.Log(API.LogType.Notice, "4");
+
+                api.Log(API.LogType.Notice, bestColors[0].ToString());
+
+                return bestColors[0];
+            } catch (System.Exception e)
+            {
+                api.Log(API.LogType.Error, "Error generating Material You color scheme from image :(");
+                api.Log(API.LogType.Error, "Error:" + e.ToString());
+
+                return GetAccentColor();
+            }
+        }
+
+        void genSchemeOnRequest(Rainmeter.API api)
+        {
+            string source = api.ReadString("ColorSource", "");
+
+            if (source.Length > 1)
+            {
+                try
+                {
+                    if (source.ToLower() == "wallpaper")
+                    {
+                        scheme = generateScheme(getColorFromImage(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Microsoft\\Windows\\Themes\\TranscodedWallpaper", api), getLightMode());
+                    }
+                    else
+                    {
+                        scheme = generateScheme(getColorFromImage(source, api), getLightMode());
+                    }
+                }
+                catch (System.Exception e)
+                {
+                    api.Log(API.LogType.Error, "Error starting Material You plugin :(");
+                    api.Log(API.LogType.Error, "Error:" + e.ToString());
+
+                    scheme = generateScheme(GetAccentColor(), getLightMode());
+                }
+            }
+            else
+            {
+                scheme = generateScheme(GetAccentColor(), getLightMode());
+            }
         }
 
         private static string rainmeterFileSettingsLocation = "";
@@ -91,7 +170,7 @@ namespace MeterialYouPlugin
                     rainmeterFileSettingsLocation = API.GetSettingsFile();
                 }
 
-                scheme = generateScheme(GetAccentColor(), getLightMode());
+                genSchemeOnRequest(api);
             }
             catch (Exception e)
             {
@@ -104,7 +183,7 @@ namespace MeterialYouPlugin
         {
             try
             {
-                scheme = generateScheme(GetAccentColor(), getLightMode());
+                genSchemeOnRequest(api);
             }
             catch (Exception e)
             {
